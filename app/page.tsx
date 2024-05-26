@@ -46,17 +46,38 @@ export default function ActivityLog() {
     eventsFetcher.fetchEvents(searchedString, pagesLoaded)
   }
   
-  return <>
-            <input type='text' onChange={handleSearch}></input>
-            <Events events={events} />
-            {
-              loading? <h1>Loading...</h1> :
-              error? <h1>Internal server error</h1> : <></>
-            }
-            {
-              loading || allEventsLoaded?
-              <></> :
-              <button onClick={handleClick}>Load more events</button>
-            }
-          </>
+  return <div className='m-12 border-x-2 rounded-2xl border-neutral-100'>
+            <div className='bg-neutral-100 rounded-t-2xl'>
+              <div className='p-3'>
+                <input type='text'
+                        placeholder='Search name, email or action...'
+                        className='border-2
+                                    rounded-xl
+                                    p-3
+                                    w-full
+                                    bg-neutral-100'
+                        onChange={handleSearch} />
+              </div>
+            </div>
+            <div>
+              <Events events={events} />
+              {
+                loading? <h1>Loading...</h1> :
+                error? <h1>Internal server error</h1> : <></>
+              }
+              {
+                loading || allEventsLoaded?
+                <></> :
+                <button className='block
+                                    w-full
+                                    py-3
+                                    bg-neutral-100
+                                    rounded-b-2xl
+                                    font-semibold'
+                        onClick={handleClick}>
+                  LOAD MORE
+                </button>
+              }
+            </div>
+          </div>
 }

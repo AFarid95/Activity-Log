@@ -4,10 +4,19 @@ import EventDetailPart from "./EventDetailPart";
 export default function EventDetails({ event, onClick }: {
     event: Event, onClick: () => void
 }) {
-    return <tr onClick={onClick}>
-                <td colSpan={3}>
+    return <tr className="block
+                            px-4
+                            pt-4
+                            hover:bg-gray-50
+                            -mx-4
+                            border-x-2
+                            rounded-2xl
+                            border-neutral-100
+                            cursor-pointer"
+                onClick={onClick}>
+                <td className="block" colSpan={3}>
                     <ul>
-                        <li>
+                        <li className="inline-block w-1/3 align-top mb-4">
                             <EventDetailPart
                                 caption='ACTOR'
                                 data={{
@@ -16,7 +25,7 @@ export default function EventDetails({ event, onClick }: {
                                     ID: event.actorId
                                 }} />
                         </li>
-                        <li>
+                        <li className="inline-block w-1/3 align-top mb-4">
                             <EventDetailPart
                                 caption='ACTION'
                                 data={{
@@ -24,14 +33,14 @@ export default function EventDetails({ event, onClick }: {
                                     ID: event.actionId
                                 }} />
                         </li>
-                        <li>
+                        <li className="inline-block w-1/3 align-top mb-4">
                             <EventDetailPart
                                 caption='DATE'
                                 data={{
                                     'Occurred at': event.occurredAt
                                 }} />
                         </li>
-                        <li>
+                        <li className="inline-block w-1/3 align-top mb-4">
                             <EventDetailPart
                                 caption='METADATA'
                                 data={{
@@ -40,7 +49,7 @@ export default function EventDetails({ event, onClick }: {
                                     'Request ID': event.xRequestId
                                 }} />
                         </li>
-                        <li>
+                        <li className="inline-block w-1/3 align-top mb-4">
                             <EventDetailPart
                                 caption='TARGET'
                                 data={{
