@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Event from "./Event";
+import EventRow from "./EventRow";
 
 export default function Events({ events }: { events: Event[] }): ReactNode {
     return <table>
@@ -12,13 +13,9 @@ export default function Events({ events }: { events: Event[] }): ReactNode {
                 </thead>
                 <tbody>
                     { 
-                        events.map(event => 
-                            <tr key={event.id}>
-                                <td>{event.actorEmail}</td>
-                                <td>{event.actionName}</td>
-                                <td>{event.occurredAt.toLocaleString()}</td>
-                            </tr>
-                        ) 
+                        events.map(
+                            event => 
+                                <EventRow  key={event.id} event={event} />)
                     }
                 </tbody>
             </table>
