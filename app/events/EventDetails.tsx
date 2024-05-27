@@ -1,5 +1,6 @@
 import Event from "./Event";
 import EventDetailPart from "./EventDetailPart";
+import datetimeFormat from "./datetimeFormat";
 
 export default function EventDetails({ event, onClick }: {
     event: Event, onClick: () => void
@@ -37,7 +38,8 @@ export default function EventDetails({ event, onClick }: {
                             <EventDetailPart
                                 caption='DATE'
                                 data={{
-                                    'Occurred at': event.occurredAt
+                                    'Readable': datetimeFormat(
+                                        event.occurredAt)
                                 }} />
                         </li>
                         <li className="inline-block w-1/3 align-top mb-4">

@@ -1,19 +1,30 @@
 import Event from "./Event";
+import datetimeFormat from "./datetimeFormat";
+import thumbnailClassOfLetter from "./thumbnailClassOfLetter";
 
 export default function EventSummary({ event, onClick }: {
     event: Event, onClick: () => void
 }) {
+    const actorEmailFirstLetterUppercase = event.actorEmail[0].toUpperCase()
+
     return <tr className="block
                             px-4
                             py-2
                             hover:bg-gray-50
                             cursor-pointer"
                 onClick={onClick}>
-                <td className='inline-block w-1/3'>{event.actorEmail}</td>
+                <td className='inline-block w-1/3'>
+                    <span className={
+                        thumbnailClassOfLetter(actorEmailFirstLetterUppercase)
+                        }>
+                        {actorEmailFirstLetterUppercase}
+                    </span>
+                    {event.actorEmail}
+                </td>
                 <td className='inline-block w-1/3'>{event.actionName}</td>
                 <td className='inline-block w-1/3'>
                     <div className="inline-block w-3/4">
-                        {event.occurredAt.toLocaleString()}
+                        {datetimeFormat(event.occurredAt)}
                     </div>
                     <div className="inline-block
                                     w-1/4
