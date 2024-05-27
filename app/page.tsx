@@ -61,9 +61,25 @@ export default function ActivityLog() {
             </div>
             <div>
               <Events events={events} />
-              {
-                loading? <h1>Loading...</h1> :
-                error? <h1>Internal server error</h1> : <></>
+              { // TODO: remove duplication
+                loading? <div className='block
+                                          w-full
+                                          py-3
+                                          bg-neutral-100
+                                          rounded-b-2xl
+                                          font-semibold
+                                          text-center'>
+                            LOADING...
+                          </div> :
+                error? <button className='block
+                                          w-full
+                                          py-3
+                                          bg-neutral-100
+                                          rounded-b-2xl
+                                          font-semibold'
+                            onClick={handleClick}>
+                          SERVER ERROR, TRY LOADING AGAIN
+                        </button> : <></>
               }
               {
                 loading || allEventsLoaded?

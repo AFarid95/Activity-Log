@@ -8,11 +8,12 @@ export default function EventDetails({ event, onClick }: {
     return <tr className="block
                             px-4
                             pt-4
+                            bg-white
                             hover:bg-gray-50
                             -mx-4
-                            border-x-2
+                            border-2
                             rounded-2xl
-                            border-neutral-100
+                            border-neutral-200
                             cursor-pointer"
                 onClick={onClick}>
                 <td className="block" colSpan={3}>
