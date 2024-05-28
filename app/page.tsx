@@ -6,6 +6,8 @@ import Events from './events/Events'
 import { ChangeEvent, useEffect, useState } from 'react'
 import InitialEventsFetcher from './events/InitialEventsFetcher'
 import MoreEventsFetcher from './events/MoreEventsFetcher'
+import SearchBar from './SearchBar'
+import ActivityLogFooter from './ActivityLogFooter'
 
 export default function ActivityLog() {
   const [events, setEvents] = useState<Event[]>([])
@@ -47,53 +49,20 @@ export default function ActivityLog() {
   }
   
   return <div className='m-12 border-x-2 rounded-2xl border-neutral-100'>
-            <div className='bg-neutral-100 rounded-t-2xl'>
-              <div className='p-3'>
-                <input type='text'
-                        placeholder='Search name, email or action...'
-                        className='border-2
-                                    rounded-xl
-                                    p-3
-                                    w-full
-                                    bg-neutral-100'
-                        onChange={handleSearch} />
-              </div>
-            </div>
-            <div>
-              <Events events={events} />
-              { // TODO: remove duplication
-                loading? <div className='block
-                                          w-full
-                                          py-3
-                                          bg-neutral-100
-                                          rounded-b-2xl
-                                          font-semibold
-                                          text-center'>
-                            LOADING...
-                          </div> :
-                error? <button className='block
-                                          w-full
-                                          py-3
-                                          bg-neutral-100
-                                          rounded-b-2xl
-                                          font-semibold'
-                            onClick={handleClick}>
-                          SERVER ERROR, TRY LOADING AGAIN
-                        </button> : <></>
-              }
-              {
-                loading || allEventsLoaded?
-                <></> :
-                <button className='block
-                                    w-full
-                                    py-3
-                                    bg-neutral-100
-                                    rounded-b-2xl
-                                    font-semibold'
-                        onClick={handleClick}>
-                  LOAD MORE
-                </button>
-              }
-            </div>
+            <SearchBar onChange={handleSearch} />
+            <Events events={events} />
+            {
+              loading? <ActivityLogFooter
+                        isLoadButton={false}
+                        text='LOADING...' /> :
+              error? <ActivityLogFooter
+                      isLoadButton={true}
+                      onClick={handleClick}
+                      text='SERVER ERROR, TRY LOADING AGAIN' /> :
+              allEventsLoaded? <></> :
+              <ActivityLogFooter isLoadButton={true}
+                                  onClick={handleClick}
+                                  text='LOAD MORE' />
+            }
           </div>
 }

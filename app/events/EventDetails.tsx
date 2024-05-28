@@ -5,6 +5,31 @@ import datetimeFormat from "./datetimeFormat";
 export default function EventDetails({ event, onClick }: {
     event: Event, onClick: () => void
 }) {
+    const eventDetailParts = {
+        ACTOR: {
+            Name: event.actorName,
+            Email: event.actorEmail,
+            ID: event.actorId
+        },
+        ACTION: {
+            Name: event.actionName,
+            ID: event.actionId
+        },
+        DATE: {
+            Readable: datetimeFormat(
+                event.occurredAt)
+        },
+        METADATA: {
+            Redirect: event.redirect,
+            Description: event.description,
+            'Request ID': event.xRequestId
+        },
+        TARGET: {
+            Name: event.targetName,
+            ID: event.targetId
+        }
+    }
+
     return <tr className="block
                             px-4
                             pt-4
@@ -18,48 +43,27 @@ export default function EventDetails({ event, onClick }: {
                 onClick={onClick}>
                 <td className="block" colSpan={3}>
                     <ul>
-                        <li className="inline-block w-1/3 align-top mb-4">
-                            <EventDetailPart
-                                caption='ACTOR'
-                                data={{
-                                    Name: event.actorName,
-                                    Email: event.actorEmail,
-                                    ID: event.actorId
-                                }} />
-                        </li>
-                        <li className="inline-block w-1/3 align-top mb-4">
-                            <EventDetailPart
-                                caption='ACTION'
-                                data={{
-                                    Name: event.actionName,
-                                    ID: event.actionId
-                                }} />
-                        </li>
-                        <li className="inline-block w-1/3 align-top mb-4">
-                            <EventDetailPart
-                                caption='DATE'
-                                data={{
-                                    'Readable': datetimeFormat(
-                                        event.occurredAt)
-                                }} />
-                        </li>
-                        <li className="inline-block w-1/3 align-top mb-4">
-                            <EventDetailPart
-                                caption='METADATA'
-                                data={{
-                                    Redirect: event.redirect,
-                                    Description: event.description,
-                                    'Request ID': event.xRequestId
-                                }} />
-                        </li>
-                        <li className="inline-block w-1/3 align-top mb-4">
-                            <EventDetailPart
-                                caption='TARGET'
-                                data={{
-                                    Name: event.targetName,
-                                    ID: event.targetId
-                                }} />
-                        </li>
+                        {
+                            Object.keys(eventDetailParts).map(
+                                eventDetailPartHeader =>
+                                    <li key={eventDetailPartHeader}
+                                        className="inline-block
+                                                    w-1/3
+                                                    align-top
+                                                    mb-4">
+                                        <EventDetailPart
+                                            caption={
+                                                eventDetailPartHeader
+                                            }
+                                            data={
+                                                eventDetailParts[
+                                                    eventDetailPartHeader as
+                                                    keyof
+                                                    typeof eventDetailParts]
+                                            } />
+                                    </li>
+                            )
+                        }
                     </ul>
                 </td>
             </tr>
