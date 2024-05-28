@@ -1,5 +1,5 @@
-import ActivityLogStateSetters from "../ActivityLogStateSetters"
-import Event from "./Event";
+import ActivityLogStateSetters from '../ActivityLogStateSetters'
+import Event from './Event';
 
 export default abstract class EventsFetcher {
     stateSetters: ActivityLogStateSetters;

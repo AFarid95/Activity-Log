@@ -1,4 +1,4 @@
-import thumbnailClassOfLetter from "./events/thumbnailClassOfLetter"
+import thumbnailClassOfLetter from './events/thumbnailClassOfLetter'
 
 export default function Thumbnail({ letter }: {
     letter: string

@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Event from "./Event";
-import EventSummary from "./EventSummary";
-import EventDetails from "./EventDetails";
+import { useState } from 'react';
+import Event from './Event';
+import EventSummary from './EventSummary';
+import EventDetails from './EventDetails';
 
 export default function EventRow({ event }: { event: Event }) {
     const [detailsShown, setDetailsShown] = useState<boolean>(false)

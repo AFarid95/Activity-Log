@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from "react"
+import { ChangeEventHandler } from 'react'
 
 export default function SearchBar({ onChange }: {
     onChange: ChangeEventHandler<HTMLInputElement>

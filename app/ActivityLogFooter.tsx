@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react"
+import { MouseEventHandler } from 'react'
 
 export default function ActivityLogFooter({ isLoadButton, onClick, text }: {
     isLoadButton: boolean,

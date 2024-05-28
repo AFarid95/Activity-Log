@@ -1,6 +1,6 @@
-import Event from "./Event";
-import EventDetailPart from "./EventDetailPart";
-import datetimeFormat from "./datetimeFormat";
+import Event from './Event';
+import EventDetailPart from './EventDetailPart';
+import datetimeFormat from './datetimeFormat';
 
 export default function EventDetails({ event, onClick }: {
     event: Event, onClick: () => void
@@ -30,7 +30,7 @@ export default function EventDetails({ event, onClick }: {
         }
     }
 
-    return <tr className="block
+    return <tr className='block
                             px-4
                             pt-4
                             bg-white
@@ -39,18 +39,18 @@ export default function EventDetails({ event, onClick }: {
                             border-2
                             rounded-2xl
                             border-neutral-200
-                            cursor-pointer"
+                            cursor-pointer'
                 onClick={onClick}>
-                <td className="block" colSpan={3}>
+                <td className='block' colSpan={3}>
                     <ul>
                         {
                             Object.keys(eventDetailParts).map(
                                 eventDetailPartHeader =>
                                     <li key={eventDetailPartHeader}
-                                        className="inline-block
+                                        className='inline-block
                                                     w-1/3
                                                     align-top
-                                                    mb-4">
+                                                    mb-4'>
                                         <EventDetailPart
                                             caption={
                                                 eventDetailPartHeader

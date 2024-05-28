@@ -1,5 +1,5 @@
-import EventsFetcher from "./EventsFetcher";
-import Event from "./Event";
+import EventsFetcher from './EventsFetcher';
+import Event from './Event';
 
 export default class MoreEventsFetcher extends EventsFetcher {
     fetchedEventsCallback(events: Event[]) {

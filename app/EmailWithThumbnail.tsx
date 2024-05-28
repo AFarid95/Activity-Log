@@ -1,4 +1,4 @@
-import Thumbnail from "./Thumbnail"
+import Thumbnail from './Thumbnail'
 
 export default function EmailWithThumbnail({ email }: {
     email: string

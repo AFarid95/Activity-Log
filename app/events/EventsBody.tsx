@@ -1,8 +1,8 @@
-import Event from "./Event";
-import EventRow from "./EventRow";
+import Event from './Event';
+import EventRow from './EventRow';
 
 export default function EventsBody({ events }: { events: Event[] }) {
-    return <tbody className="block py-2">
+    return <tbody className='block py-2'>
                 { 
                     events.map(
                         event => 

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 import Event from './events/Event'
 
 export default class ActivityLogStateSetters {

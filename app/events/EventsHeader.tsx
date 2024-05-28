@@ -1,8 +1,8 @@
 export default function EventsHeader () {
     const headers = [ 'ACTOR', 'ACTION', 'DATE' ]
 
-    return <thead className="block px-4 pb-4 bg-neutral-100">
-                <tr className="block">
+    return <thead className='block px-4 pb-4 bg-neutral-100'>
+                <tr className='block'>
                     {
                         headers.map(
                             header =>
