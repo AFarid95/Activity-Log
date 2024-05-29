@@ -15,7 +15,7 @@ export default function EventPage ({
   }) {
     const fetcher = (url: string) => fetch(url).then(res => res.json())
   
-    const { data, error, isLoading } = useSWR('http://localhost:3000/events?'
+    const { data, error, isLoading } = useSWR('/events?'
                                               + `search=${searchedText}`
                                               + `&page=${index}`,
                                               fetcher)
