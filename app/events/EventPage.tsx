@@ -3,6 +3,7 @@ import Event from "./Event"
 import EventRow from "./EventRow"
 import { useEffect } from "react"
 import pageSize from "./pageSize"
+import EventPageLoadingState from "./EventPageLoadingState"
 
 export default function EventPage ({
     searchedText,
@@ -24,22 +25,12 @@ export default function EventPage ({
         }, [data])
    
     if (error)
-      return <tr>
-                    <td  colSpan={3}>
-                        <div className='font-semibold text-center'>
-                            SERVER ERROR, WILL TRY LOADING AGAIN
-                        </div>
-                    </td>
-                </tr>
+      return <EventPageLoadingState
+                text='SERVER ERROR, WILL TRY LOADING AGAIN' />
     
     if (isLoading)
-      return <tr>
-                    <td  colSpan={3}>
-                        <div className='font-semibold'>
-                            LOADING...
-                        </div>
-                    </td>
-                </tr>
+      return <EventPageLoadingState
+                text='LOADING...' />
    
     return <>
                 {

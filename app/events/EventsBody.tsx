@@ -1,6 +1,4 @@
-import Event from './Event';
 import EventPage from './EventPage';
-import EventRow from './EventRow';
 
 export default function EventsBody({
     searchedText,
