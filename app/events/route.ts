@@ -1,12 +1,11 @@
 import { PrismaClient } from '@prisma/client'
 import { type NextRequest } from 'next/server'
+import pageSize from './pageSize'
 
 const prisma = new PrismaClient()
 
 export async function GET(request: NextRequest) {
     let response = null
-
-    const pageSize = 2
 
     const possiblyNullPageNumber =
         request.nextUrl.searchParams.get('page')

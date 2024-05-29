@@ -1,7 +1,7 @@
 import EmailWithThumbnail from '../EmailWithThumbnail';
 import LastField from '../LastField';
 import Event from './Event';
-import datetimeFormat from './datetimeFormat';
+import datetimeFormat from '../datetimeFormat';
 
 export default function EventSummary({ event, onClick }: {
     event: Event, onClick: () => void

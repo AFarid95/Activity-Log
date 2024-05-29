@@ -1,6 +1,6 @@
 import Event from './Event';
 import EventDetailPart from './EventDetailPart';
-import datetimeFormat from './datetimeFormat';
+import datetimeFormat from '../datetimeFormat';
 
 export default function EventDetails({ event, onClick }: {
     event: Event, onClick: () => void

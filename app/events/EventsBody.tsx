@@ -1,12 +1,26 @@
 import Event from './Event';
+import EventPage from './EventPage';
 import EventRow from './EventRow';
 
-export default function EventsBody({ events }: { events: Event[] }) {
+export default function EventsBody({
+    searchedText,
+    pagesLoaded,
+    allEventsAreLoadedCallback }: {
+    searchedText: string,
+    pagesLoaded: number,
+    allEventsAreLoadedCallback: () => void
+}) {
+    const eventPages = []
+    for (let i = 0; i < pagesLoaded; i++) {
+        eventPages.push(
+            <EventPage
+                key={i}
+                index={i}
+                searchedText={searchedText}
+                allEventsAreLoadedCallback={allEventsAreLoadedCallback} />)
+    }
+    
     return <tbody className='block py-2'>
-                { 
-                    events.map(
-                        event => 
-                            <EventRow key={event.id} event={event} />)
-                }
+                {eventPages}
             </tbody>
 }
