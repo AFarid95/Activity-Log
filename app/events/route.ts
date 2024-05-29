@@ -5,7 +5,7 @@ import pageSize from './pageSize'
 const prisma = new PrismaClient()
 
 export async function GET(request: NextRequest) {
-    let response = null
+    let response
 
     const possiblyNullPageNumber =
         request.nextUrl.searchParams.get('page')
@@ -76,7 +76,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-    let response = null
+    let response
 
     await request
             .json()
