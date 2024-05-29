@@ -14,9 +14,13 @@ export default function EventSummary({ event, onClick }: {
                 onClick={onClick}>
                 {
                     [
-                        <EmailWithThumbnail email={event.actorEmail} />,
+                        <EmailWithThumbnail
+                            key={1}
+                            email={event.actorEmail} />,
                         event.actionName,
-                        <LastField data={datetimeFormat(event.occurredAt)} />
+                        <LastField
+                            key={3}
+                            data={datetimeFormat(event.occurredAt)} />
                     ].map(
                         (tdContent, index) =>
                             <td key={index} className='inline-block w-1/3'>

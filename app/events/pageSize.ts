@@ -1,1 +1,3 @@
-export default 10
+const pageSize = 10
+
+export default pageSize

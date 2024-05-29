@@ -22,7 +22,7 @@ export default function EventPage ({
     useEffect(() => {
         if (data && (data as Event[]).length < pageSize)
             allEventsAreLoadedCallback()
-        }, [data])
+        }, [data, allEventsAreLoadedCallback])
    
     if (error)
       return <EventPageLoadingState
